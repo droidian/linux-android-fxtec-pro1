@@ -1026,7 +1026,7 @@ static int register_aw9523b_input_dev(struct device *pdev)
 	__set_bit(EV_KEY, aw9523b_input_dev->evbit);
 
 	/* We can potentially generate all keys due to remapping */
-	for (key = 1; key < 0xff; ++key) {
+	for (key = 1; key < KEY_MAX; ++key) {
 		if (key >= KEY_STYLUS_MIN && key < KEY_STYLUS_MAX)
 			continue;
 		input_set_capability(aw9523b_input_dev, EV_KEY, key);
